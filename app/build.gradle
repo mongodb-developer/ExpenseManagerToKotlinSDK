@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id("io.realm.kotlin") version "0.10.0"
+    id 'io.realm.kotlin'
 }
 
 android {
