@@ -33,9 +33,8 @@ class MainViewModel(private val realm: Realm) : ViewModel() {
         }
     }
 
-    private fun getAllExpense(): Flow<ResultsChange<ExpenseInfo>> {
-        return realm.query<ExpenseInfo>().find().asFlow()
-    }
+    private fun getAllExpense(): Flow<ResultsChange<ExpenseInfo>> =
+        realm.query<ExpenseInfo>().asFlow()
 
     fun removeExpense(expenseInfo: ExpenseInfo) {
 
