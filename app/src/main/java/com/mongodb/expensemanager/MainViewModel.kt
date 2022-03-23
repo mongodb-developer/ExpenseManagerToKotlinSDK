@@ -25,10 +25,9 @@ class MainViewModel(private val realm: Realm) : ViewModel() {
         }
     }
 
-    private fun getAllExpense(): Flow<List<ExpenseInfo>> {
+    private fun getAllExpense(): Flow<List<ExpenseInfo>> =
         // Copy to realm for issue with livedata
-        return realm.where(ExpenseInfo::class.java).findAllAsync().toFlow()
-    }
+        realm.where(ExpenseInfo::class.java).greaterThan("expenseValue", 0).findAllAsync().toFlow()
 
     fun removeExpense(expenseInfo: ExpenseInfo) {
         realm.executeTransactionAsync { bgRealm ->
